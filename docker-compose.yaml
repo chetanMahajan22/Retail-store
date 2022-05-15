@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  retail-store-discount-calculator:
+    image: retail-store-discount-calculator:1.0
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongodb
+    networks:
+      - retail-store
+
+  mongodb:
+    image: mongo:latest
+    container_name: "mongoDB"
+    ports:
+      - "27017:27017"
+    networks:
+      - retail-store
+
+networks:
+  retail-store:

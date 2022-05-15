@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "c439cfaf-46d8-4113-a0e2-afe1ed5c166c",
+		"name": "RetailStore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User with Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/users/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Sudhir\",\n    \"type\": \"EMPLOYEE\",\n    \"registeredDate\": \"2018-05-15\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Bills",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Create Bill",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n            {\n                \"name\": \"Olive oil\",\n                \"price\": 10.0,\n                \"type\": \"GROCERY\"\n            },\n            {\n                \"name\": \"Oats\",\n                \"price\": 5.0,\n                \"type\": \"GROCERY\"\n            },\n            {\n                \"name\": \"Adidas Tshirt\",\n                \"price\": 90.0,\n                \"type\": \"CLOTHING\"\n            },\n            {\n                \"name\": \"Wrangler Jeans\",\n                \"price\": 120.0,\n                \"type\": \"CLOTHING\"\n            }\n]\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/bills",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"bills"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Bill with Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/bills/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"bills",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add products to bill",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n        {\n            \"name\": \"Olive oil\",\n            \"price\": 10.0,\n            \"type\": \"GROCERY\"\n        },\n        {\n            \"name\": \"Oats\",\n            \"price\": 5.0,\n            \"type\": \"GROCERY\"\n        },\n        {\n            \"name\": \"Adidas Tshirt\",\n            \"price\": 90.0,\n            \"type\": \"CLOTHING\"\n        },\n        {\n            \"name\": \"Wrangler Jeans\",\n            \"price\": 120.0,\n            \"type\": \"CLOTHING\"\n        }\n    ]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/bills/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"bills",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CalculateDiscount",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}
