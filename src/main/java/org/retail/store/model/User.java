@@ -7,6 +7,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Getter
@@ -14,10 +17,14 @@ import java.time.LocalDate;
 @ToString
 @Document(collection = "users")
 public class User {
+    @NotNull
+    @Size(min=2, message = "User name should have minimum 2 characters.")
     private String name;
     @Id
     private int id;
+    @NotNull
     private UserType type;
+    @PastOrPresent
     private LocalDate registeredDate;
 
     @Transient

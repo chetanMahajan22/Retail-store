@@ -1,5 +1,7 @@
 package org.retail.store.services;
 
+import org.retail.store.exception.BillNotFoundException;
+import org.retail.store.exception.UserNotFoundException;
 import org.retail.store.model.Bill;
 import org.retail.store.model.ProductType;
 import org.retail.store.model.User;
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
 @Component
 public class RetailStoreService {
@@ -24,12 +27,17 @@ public class RetailStoreService {
     private DiscountCalculator calculator;
 
     public BigDecimal calculateDiscountWithId(int userID, int billId){
-        User user = userRepository.findById(userID).get();
-        Bill bill = billRepository.findById(billId).get();
-        log.info("user :{}, bill {}", user, bill);
+        Optional<User> userOptional = userRepository.findById(userID);
+        Optional<Bill> billOptional = billRepository.findById(billId);
         BigDecimal discountedAmount = new BigDecimal(0);
-        if(user != null && bill != null){
-            discountedAmount = calculateDiscount(user, bill);
+        if(userOptional.isPresent() && billOptional.isPresent()){
+            discountedAmount = calculateDiscount(userOptional.get(), billOptional.get());
+        }else if(!userOptional.isPresent()){
+            log.info("User not found with id :"+userID);
+            throw new UserNotFoundException("User not found with id :"+userID);
+        }else{
+            log.info("User not found with id :"+userID);
+            throw new BillNotFoundException("Bill not found with id :"+billId);
         }
         return discountedAmount;
     }

@@ -1,4 +1,4 @@
-package org.retail.store.services;
+package org.retail.store.repository;
 
 import org.retail.store.model.UserType;
 import org.retail.store.model.User;
