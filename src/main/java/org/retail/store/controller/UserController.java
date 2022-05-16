@@ -1,14 +1,16 @@
 package org.retail.store.controller;
 
+import org.retail.store.exception.UserNotFoundException;
 import org.retail.store.model.User;
 import org.retail.store.services.SequenceGenerator;
 import org.retail.store.repository.UserMongoRepository;
-import org.retail.store.services.UserRepository;
+import org.retail.store.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
@@ -34,20 +36,25 @@ public class UserController {
         if(byId.isPresent()){
              return byId.get();
         }else{
-            throw new RuntimeException("User not found");
+            throw new UserNotFoundException("User not found");
         }
     }
 
     @DeleteMapping("/users/{id}")
     public String deleteUser(@PathVariable int id ){
-        mongoRepository.deleteById(id);
-        StringBuilder builder = new StringBuilder("User with id ");
-        builder.append(id).append(" deleted.");
-        return builder.toString();
+        Optional<User> byId = mongoRepository.findById(id);
+        if(byId.isPresent()){
+            mongoRepository.deleteById(id);
+            StringBuilder builder = new StringBuilder("User with id ");
+            builder.append(id).append(" deleted.");
+            return builder.toString();
+        }else{
+            throw new UserNotFoundException("User not found");
+        }
     }
 
     @PostMapping("/users")
-    public ResponseEntity createUser(@RequestBody User usr){
+    public ResponseEntity createUser(@Valid @RequestBody User usr){
         usr.setId(sequenceGenerator.getSequenceNumber(User.SEQUENCE_NAME));
         User user = mongoRepository.save(usr);
         //to return status of request as created

@@ -1,4 +1,4 @@
-package org.retail.store.services;
+package org.retail.store.repository;
 
 import org.retail.store.model.Bill;
 import org.retail.store.model.Product;

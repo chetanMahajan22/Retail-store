@@ -8,6 +8,21 @@
 		{
 			"name": "Get Users",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "pass123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -27,10 +42,25 @@
 		{
 			"name": "Get User with Id",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "pass123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/users/2",
+					"raw": "http://localhost:8000/users/1001",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -38,7 +68,7 @@
 					"port": "8000",
 					"path": [
 						"users",
-						"2"
+						"1001"
 					]
 				}
 			},
@@ -47,11 +77,26 @@
 		{
 			"name": "Create User",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "pass123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Sudhir\",\n    \"type\": \"EMPLOYEE\",\n    \"registeredDate\": \"2018-05-15\"\n}",
+					"raw": "{\n    \"name\": \"Sunil\",\n    \"type\": \"AFFILIATE\",\n    \"registeredDate\": \"2018-05-15\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -75,10 +120,25 @@
 		{
 			"name": "Delete User",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "pass123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/users/1",
+					"raw": "http://localhost:8000/users/4",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -86,7 +146,7 @@
 					"port": "8000",
 					"path": [
 						"users",
-						"1"
+						"4"
 					]
 				}
 			},
@@ -95,15 +155,55 @@
 		{
 			"name": "Get Bills",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "pass123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://localhost:8000/bills",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"bills"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "Create Bill",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "pass123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -132,10 +232,25 @@
 		{
 			"name": "Get Bill with Id",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "pass123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/bills/1",
+					"raw": "http://localhost:8000/bills/1001",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -143,7 +258,7 @@
 					"port": "8000",
 					"path": [
 						"bills",
-						"1"
+						"1001"
 					]
 				}
 			},
@@ -152,11 +267,26 @@
 		{
 			"name": "Add products to bill",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "pass123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\n        {\n            \"name\": \"Olive oil\",\n            \"price\": 10.0,\n            \"type\": \"GROCERY\"\n        },\n        {\n            \"name\": \"Oats\",\n            \"price\": 5.0,\n            \"type\": \"GROCERY\"\n        },\n        {\n            \"name\": \"Adidas Tshirt\",\n            \"price\": 90.0,\n            \"type\": \"CLOTHING\"\n        },\n        {\n            \"name\": \"Wrangler Jeans\",\n            \"price\": 120.0,\n            \"type\": \"CLOTHING\"\n        }\n    ]",
+					"raw": "[\n        {\n            \"name\": \"iPhone\",\n            \"price\": 800,\n            \"type\": \"OTHER\"\n        },\n         {\n            \"name\": \"Sony Bravia\",\n            \"price\": 400,\n            \"type\": \"OTHER\"\n        }\n       \n    ]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -181,9 +311,37 @@
 		{
 			"name": "CalculateDiscount",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "pass123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://localhost:8000/bills/discount/1/1001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"bills",
+						"discount",
+						"1",
+						"1001"
+					]
+				}
 			},
 			"response": []
 		}
